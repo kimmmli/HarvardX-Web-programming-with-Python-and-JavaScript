@@ -1,0 +1,12 @@
+
+{% extends "flights/layout.html" %}
+
+{% block body %}
+    <h1>Flights:</h1>
+    <ul>
+        {% for flight in flights %}
+            <!-- 这里我们要'flights:flight' 因为在urls.py 我们定义了app_name 之后refer url name都要加:-->
+            <li><a href="{% url 'flights:flight' flight.id %}">Flight {{ flight.id }}</a>: {{ flight.origin }} to {{ flight.destination }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
